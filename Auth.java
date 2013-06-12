@@ -9,8 +9,7 @@ public class Auth {
 	private final String productId;
 	private final String cookie;
 	private final String token;
-	private final String csrfVersion;
-	private final double excelVersion;
+ 
 
 	public Auth(String user) {
 		this.user = user;
@@ -18,8 +17,7 @@ public class Auth {
 		this.productId = "";
 		this.cookie = "";
 		this.token = "";
-		this.csrfVersion = "1.01.029";
-		this.excelVersion = TypeUtil.ExcelVersion2010;
+	 
 	}
 
 	public Auth(User user, double excelVersion) {
@@ -29,9 +27,7 @@ public class Auth {
 		this.productId = user.getProductId();
 		this.cookie = user.getCookie();
 		this.token = user.getToken();
-		this.csrfVersion = user.getClientVersion();
-		this.excelVersion = excelVersion;
-
+		 
 	}
 
 	public String getUser() {
@@ -46,13 +42,7 @@ public class Auth {
 		return token;
 	}
 
-	public String getCsrfVersion() {
-		return csrfVersion;
-	}
-
-	public double getExcelVersion() {
-		return excelVersion;
-	}
+	 
 
 	public String getUserId() {
 		return userId;
@@ -71,10 +61,7 @@ public class Auth {
 		builder.append(userId);
 		builder.append(", productId=");
 		builder.append(productId);
-		builder.append(", csrfVersion=");
-		builder.append(csrfVersion);
-		builder.append(", excelVersion=");
-		builder.append(excelVersion);
+		 
 		builder.append("]");
 		return builder.toString();
 	}
@@ -84,11 +71,7 @@ public class Auth {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cookie == null) ? 0 : cookie.hashCode());
-		result = prime * result
-				+ ((csrfVersion == null) ? 0 : csrfVersion.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(excelVersion);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+	 
 		result = prime * result
 				+ ((productId == null) ? 0 : productId.hashCode());
 		result = prime * result + ((token == null) ? 0 : token.hashCode());
@@ -111,14 +94,7 @@ public class Auth {
 				return false;
 		} else if (!cookie.equals(other.cookie))
 			return false;
-		if (csrfVersion == null) {
-			if (other.csrfVersion != null)
-				return false;
-		} else if (!csrfVersion.equals(other.csrfVersion))
-			return false;
-		if (Double.doubleToLongBits(excelVersion) != Double
-				.doubleToLongBits(other.excelVersion))
-			return false;
+		 
 		if (productId == null) {
 			if (other.productId != null)
 				return false;
